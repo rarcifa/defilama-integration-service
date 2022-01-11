@@ -1,7 +1,7 @@
 {
-  "name": "cd-details-service",
+  "name": "protocol-example-service",
   "version": "1.0.0",
-  "description": "cronos dapp details service endpoint for the cronos dapp portal",
+  "description": "protocol-example-service endpoint integrating the defilama api",
   "main": "server.ts",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
