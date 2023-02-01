@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "lib": ["es5", "es6", "dom", "dom.iterable"],
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "*": ["node_modules/*"],
+      "@src/*": ["src/*"],
+      "@lib/*": ["src/lib/*"],
+      "@config/*": ["src/config/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@routes/*": ["src/routes/*"],
+      "@schemes/*": ["src/schemes/*"],
+      "@handlers/*": ["src/handlers/*"],
+      "@services/*": ["src/services/*"],
+      "@integrations/*": ["src/integrations/*"],
+      "@repositories/*": ["src/lib/db/repositories/*"]
+    },
+    "plugins": [
+      {
+        "transform": "ts-auto-mock/transformer",
+        "cacheBetweenTests": false
+      }
+    ]
+  },
+  "include": ["src"]
+}
