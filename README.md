@@ -54,15 +54,6 @@ install mongodb community edition and start the database locally.
 npm run dev
 ```
 
-### Docker
-
-- In order to run the service in Docker, run the following command:
-
-```bash
-docker build -t username/protocol-example-service -f  .docker/Dockerfile .
-docker run -p 3000:3000 -d username/protocol-example-service --enf-file .env
-```
-
 ### Links of interest
 
 - [Prettier extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
