@@ -14,3 +14,16 @@ export const mongooseConnect = async (uri: string): Promise<void> => {
     process.exit(1);
   }
 };
+
+/**
+ * @summary  disconnects from MongoDB
+ * @returns  {Promise<void>} - returned value
+ */
+export const mongooseDisconnect = async (): Promise<void> => {
+  try {
+    mongoose.disconnect();
+  } catch (e) {
+    logger.info(`[lib/db/mongoose] - ${e.message}`);
+    process.exit(1);
+  }
+};

@@ -4,7 +4,7 @@ jest.useFakeTimers();
 jest.setTimeout(15000);
 
 describe('integrations/getAllProtocols', () => {
-  test('the getAllProtocols function', async () => {
+  test('calls the getAllProtocols function', async () => {
     const value = await jest.mocked(defilamaService.getAllProtocols());
     expect(value).toBeCalled;
   });

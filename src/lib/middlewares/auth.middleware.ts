@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import {
   AUTHORIZATION_FAILED,
-  CRONOS_DAPPS_READ_API_KEY,
-  CRONOS_DAPPS_READ_API_SECRET,
-  CRONOS_DAPPS_WRITE_API_KEY,
-  CRONOS_DAPPS_WRITE_API_SECRET,
+  READ_API_KEY,
+  READ_API_SECRET,
+  WRITE_API_KEY,
+  WRITE_API_SECRET,
   EXPIRED_TOKEN,
   INVALID_API_KEY,
 } from '@config/constants';
@@ -24,11 +24,8 @@ export const authorizehRead = async (
   next: NextFunction
 ): Promise<void | Response> => {
   try {
-    const apiKey: string = req.header('x-api-key') || CRONOS_DAPPS_READ_API_KEY;
-    const isValidApiKey: boolean = authenticateApiKey(
-      CRONOS_DAPPS_READ_API_SECRET,
-      apiKey
-    );
+    const apiKey: string = req.header('x-api-key') || READ_API_KEY;
+    const isValidApiKey: boolean = authenticateApiKey(READ_API_SECRET, apiKey);
 
     if (!isValidApiKey) {
       return res
@@ -63,12 +60,8 @@ export const authorizehWrite = async (
   next: NextFunction
 ): Promise<void | Response> => {
   try {
-    const apiKey: string =
-      req.header('x-api-key') || CRONOS_DAPPS_WRITE_API_KEY;
-    const isValidApiKey: boolean = authenticateApiKey(
-      CRONOS_DAPPS_WRITE_API_SECRET,
-      apiKey
-    );
+    const apiKey: string = req.header('x-api-key') || WRITE_API_KEY;
+    const isValidApiKey: boolean = authenticateApiKey(WRITE_API_SECRET, apiKey);
 
     if (!isValidApiKey) {
       return res

@@ -1,5 +1,6 @@
 import { config } from '@config/config';
 import { initCronJob } from '@helpers/cronJob';
+
 jest.useFakeTimers();
 
 describe('helpers/cronjob', () => {
