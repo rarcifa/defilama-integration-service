@@ -5,14 +5,14 @@ jest.useFakeTimers();
 jest.setTimeout(15000);
 
 describe('helpers/common', () => {
-  test('the getDetailsAndParse function', async () => {
+  test('calls the getDetailsAndParse function', async () => {
     const defalamaMock = await jest.mocked(defilamaService.getAllProtocols());
     const value = jest.mocked(helper.getDetailsAndParse());
     expect(value).toBeCalled;
     expect(defalamaMock).toBeCalled;
   });
 
-  test('the bulkUpdateDetails function', async () => {
+  test('calls the bulkUpdateDetails function', async () => {
     const getDetailsAndParseMock = await jest.mocked(
       helper.getDetailsAndParse()
     );

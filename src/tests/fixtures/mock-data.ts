@@ -1,28 +1,25 @@
 import { IDetail } from '@lib/interfaces/details';
 
 export const mockData: IDetail = {
-  symbol: '-',
-  address: '',
-  category: 'CEX',
-  tvl: 8185283188.407768,
-  change_1h: 0.1361572476572519,
-  change_1d: 4.349733156190112,
-  change_7d: 8.997099127791387,
+  symbol: 'mock-symbol',
+  address: 'mock-address',
+  category: 'mock-cat',
+  tvl: 0,
+  change_1h: 0,
+  change_1d: 0,
+  change_7d: 0,
 };
 
 export const mockDataList: IDetail[] = [
   {
-    symbol: '-',
-    address: '',
-    category: 'CEX',
-    tvl: 8185283188.407768,
-    change_1h: 0.1361572476572519,
-    change_1d: 4.349733156190112,
-    change_7d: 8.997099127791387,
+    symbol: 'mock-symbol',
+    address: 'mock-address',
+    category: 'mock-cat',
+    tvl: 0,
+    change_1h: 0,
+    change_1d: 0,
+    change_7d: 0,
   },
 ];
 
-export const mockSymbol: string = '-';
-
-export const mockApiKey: string = '';
-export const mockApiSecret: string = '';
+export const mockSymbol: string = 'mock-symbol';

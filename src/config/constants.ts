@@ -7,19 +7,10 @@ dotenv.config();
 
 // env
 process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'development';
 
 // integrations
 export const DEFILAMA_BASE_API: string = process.env.DEFILAMA_BASE_API;
-
-// keys
-export const READ_API_KEY: string =
-  process.env.READ_API_KEY;
-export const READ_API_SECRET: string =
-  process.env.READ_API_SECRET;
-export const WRITE_API_KEY: string =
-  process.env.WRITE_API_KEY;
-export const WRITE_API_SECRET: string =
-  process.env.WRITE_API_SECRET;
 
 // request status
 export const SUCCESS: string = 'success';
@@ -29,10 +20,6 @@ export const EXPIRED_TOKEN: string = 'Expired token';
 export const AUTHORIZATION_FAILED: string = 'Failed to authorize endpoint';
 export const MESSAGE_OK: string = 'OK';
 
-// service config
-export const IS_PROD_ENV: boolean = process.env.NODE_ENV === 'production';
-export const IS_DEV_ENV: boolean = process.env.NODE_ENV === 'development';
-
 // utils
 export const JWT_PAYLOAD: string = crypto.randomBytes(20).toString('hex');
 export const IS_STRICT_QUERY: typeof mongoose = mongoose.set(
@@ -41,9 +28,39 @@ export const IS_STRICT_QUERY: typeof mongoose = mongoose.set(
 );
 export const CURRENT_DATE: Date = new Date();
 
+// service config
+export const IS_PROD_ENV: boolean = process.env.NODE_ENV === 'production';
+export const IS_DEV_ENV: boolean = process.env.NODE_ENV === 'development';
+export const DEFAULT_ENV: string = IS_DEV_ENV ? 'production' : 'development';
+export const HOST: string = process.env.HOST;
+export const PORT: string = process.env.PORT;
+export const BASE_ACCESS_URL: string = process.env.BASE_ACCESS_URL;
+
+// db config
+export const MONGODB_PROD: string = process.env.MONGODB_PROD;
+export const MONGODB_DEV: string = process.env.MONGODB_DEV;
+export const MONGODB_TEST: string = process.env.MONGODB_TEST;
+export const MONGODB_DEFAULT: string = IS_DEV_ENV
+  ? process.env.MONGODB_DEV
+  : process.env.MONGODB_PROD;
+
 // jest config
-export const JEST_TEST_API_KEY: string = process.env.JEST_TEST_API_KEY;
-export const JEST_TEST_SECRET_KEY: string = process.env.JEST_TEST_SECRET_KEY;
+export const TEST_API_KEY: string = process.env.TEST_API_KEY;
+export const TEST_SECRET_KEY: string = process.env.TEST_SECRET_KEY;
+
+// keys
+export const READ_API_KEY: string = IS_DEV_ENV
+  ? TEST_API_KEY
+  : process.env.READ_API_KEY;
+export const READ_API_SECRET: string = IS_DEV_ENV
+  ? TEST_SECRET_KEY
+  : process.env.READ_API_SECRET;
+export const WRITE_API_KEY: string = IS_DEV_ENV
+  ? TEST_SECRET_KEY
+  : process.env.WRITE_API_KEY;
+export const WRITE_API_SECRET: string = IS_DEV_ENV
+  ? TEST_SECRET_KEY
+  : process.env.WRITE_API_SECRET;
 
 // router
 export const detailsRouter: Router = express.Router();

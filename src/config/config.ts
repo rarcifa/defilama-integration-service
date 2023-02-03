@@ -1,25 +1,40 @@
 import * as dotenv from 'dotenv';
+import {
+  BASE_ACCESS_URL,
+  DEFAULT_ENV,
+  HOST,
+  IS_DEV_ENV,
+  IS_PROD_ENV,
+  MONGODB_DEFAULT,
+  MONGODB_DEV,
+  MONGODB_PROD,
+  MONGODB_TEST,
+  PORT,
+} from '@config/constants';
 
 dotenv.config();
 
 export const config = {
-  default: {
+  base: {
     protocol: 'http',
-    host: process.env.HOST,
-    port: process.env.PORT || 3010,
-    baseAccessUrl: process.env.BASE_ACCESS_URL || 'localhost:3010',
+    host: HOST,
+    port: PORT,
+    accessUrl: BASE_ACCESS_URL,
   },
   service: {
-    prod: process.env.NODE_ENV === 'production',
-    dev: process.env.NODE_ENV === 'development',
+    prod: IS_PROD_ENV,
+    dev: IS_DEV_ENV,
+    default: DEFAULT_ENV,
   },
   rabbitMQ: {
     url: 'amqp://localhost:5672',
     exchange: 'detailsExchange',
   },
   db: {
-    prod: process.env.MONGODB_PROD,
-    dev: process.env.MONGODB_DEV,
+    prod: MONGODB_PROD,
+    dev: MONGODB_DEV,
+    test: MONGODB_TEST,
+    default: MONGODB_DEFAULT,
   },
   cronJob: {
     schedule: '0 * * * *',
